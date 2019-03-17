@@ -18,12 +18,9 @@
   "extends": [
     "standard",
     "plugin:react/recommended",
-    "plugin:react-native/all",
-    "plugin:prettier/recommended"
+    "plugin:react-native/all"
   ],
   "rules": {
-    "prettier/prettier": "error",
-    "comma-dangle" : ["error", "always-multiline"],
     "space-before-function-paren": ["error", {
       "anonymous": "never",
       "named": "never",

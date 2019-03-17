@@ -3,8 +3,10 @@ import { Platform, Text, View, Button } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import ExampleActions from 'App/Stores/Example/Actions'
+import AuthActions from '../../Stores/Auth/Actions'
 import { liveInEurope } from 'App/Stores/Example/Selectors'
 import Style from './ExampleScreenStyle'
+import { authorize } from 'react-native-app-auth';
 
 /**
  * This is an example of a container component.
@@ -21,6 +23,7 @@ const instructions = Platform.select({
 class ExampleScreen extends React.Component {
   componentDidMount() {
     this.props.fetchUser()
+    this.props.auth()
   }
 
   render() {
@@ -57,17 +60,19 @@ ExampleScreen.propsTypes = {
   user: PropTypes.number,
   userIsLoading: PropTypes.bool,
   userErrorMessage: PropTypes.string,
+  auth: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => ({
   user: state.example.get('user').toJS(),
   userIsLoading: state.example.get('userIsLoading'),
   userErrorMessage: state.example.get('userErrorMessage'),
-  liveInEurope: liveInEurope(state),
+  liveInEurope: liveInEurope(state)
 })
 
 const mapDispatchToProps = (dispatch) => ({
   fetchUser: () => dispatch(ExampleActions.fetchUser()),
+  auth: () => dispatch(AuthActions.authorize())
 })
 
 export default connect(

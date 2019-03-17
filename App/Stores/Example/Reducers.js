@@ -32,7 +32,7 @@ export const fetchUserFailure = (state, { errorMessage }) =>
 /**
  * @see https://github.com/infinitered/reduxsauce#createreducer
  */
-export const reducer = createReducer(INITIAL_STATE, {
+export default createReducer(INITIAL_STATE, {
   [ExampleTypes.FETCH_USER_LOADING]: fetchUserLoading,
   [ExampleTypes.FETCH_USER_SUCCESS]: fetchUserSuccess,
   [ExampleTypes.FETCH_USER_FAILURE]: fetchUserFailure,
