@@ -26,6 +26,8 @@ target 'youtubeapi' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
+  pod 'AppAuth', '>= 0.94'
+
   target 'youtubeapiTests' do
     inherit! :search_paths
     # Pods for testing

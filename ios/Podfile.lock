@@ -1,4 +1,5 @@
 PODS:
+  - AppAuth (0.95.0)
   - boost-for-react-native (1.63.0)
   - DoubleConversion (1.1.6)
   - Folly (2016.10.31.00):
@@ -41,6 +42,7 @@ PODS:
   - yoga (0.57.8.React)
 
 DEPENDENCIES:
+  - AppAuth (>= 0.94)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
@@ -55,6 +57,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - AppAuth
     - boost-for-react-native
 
 EXTERNAL SOURCES:
@@ -70,6 +73,7 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
+  AppAuth: 137f6bb6fc9dfbaf2cf9f6fcff1d336ff0163bc6
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   DoubleConversion: bb338842f62ab1d708ceb63ec3d999f0f3d98ecd
   Folly: c89ac2d5c6ab169cd7397ef27485c44f35f742c7
@@ -77,6 +81,6 @@ SPEC CHECKSUMS:
   React: adbac0757ce35e92fbd447ab98c810209d27d9b0
   yoga: 74cdf036c30820443b25ade59916236b1e95ee93
 
-PODFILE CHECKSUM: 2afb07b4c0999821f2fb367e1b6cdb26a2048a4c
+PODFILE CHECKSUM: 8487fbc8e928055d23ff332540f08fd5900e0ef3
 
 COCOAPODS: 1.6.1
