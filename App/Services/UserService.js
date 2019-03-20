@@ -14,9 +14,9 @@ const userApiClient = create({
   baseURL: Config.API_URL,
   headers: {
     Accept: 'application/json',
-    'Content-Type': 'application/json',
+    'Content-Type': 'application/json'
   },
-  timeout: 3000,
+  timeout: 3000
 })
 
 function fetchUser() {
@@ -39,5 +39,5 @@ function fetchUser() {
 }
 
 export const userService = {
-  fetchUser,
+  fetchUser
 }
