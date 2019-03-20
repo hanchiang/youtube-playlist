@@ -1,3 +1,4 @@
+import { Platform } from 'react-native'
 import { put, call } from 'redux-saga/effects'
 import AuthActions from '../Stores/Auth/Actions'
 import authService from '../Services/Auth'
@@ -12,7 +13,10 @@ export function* authorize() {
   } catch (error) {
     console.tron.log(error)
     yield put(
-      AuthActions.authorizeFailure(error.code)
+      AuthActions.authorizeFailure(Platform.select({
+        android: error.code,
+        ios: error.userInfo.NSLocalizedDescription
+      }))
     )
   }
 }
