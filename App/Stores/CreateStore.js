@@ -25,11 +25,8 @@ const persistConfig = {
   ],
   key: 'root',
   storage: storage,
-  /**
-   * Blacklist state that we do not need/want to persist
-   */
-  blacklist: [
-    // 'auth',
+  whitelist: [
+    'authState' // only authState will be persisted
   ]
 }
 
