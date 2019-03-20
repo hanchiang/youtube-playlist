@@ -6,7 +6,6 @@ import ExampleActions from 'App/Stores/Example/Actions'
 import AuthActions from '../../Stores/Auth/Actions'
 import { liveInEurope } from 'App/Stores/Example/Selectors'
 import Style from './ExampleScreenStyle'
-import { authorize } from 'react-native-app-auth';
 
 /**
  * This is an example of a container component.

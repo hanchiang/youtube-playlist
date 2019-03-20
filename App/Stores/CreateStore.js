@@ -2,6 +2,8 @@ import { applyMiddleware, compose, createStore } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import { persistReducer, persistStore } from 'redux-persist'
 import immutableTransform from 'redux-persist-transform-immutable'
+import Reactotron from '../Config/Reactotron'
+import ReactoTron from 'reactotron-react-native'
 
 /**
  * This import defaults to localStorage for web and AsyncStorage for react-native.
@@ -20,7 +22,7 @@ const persistConfig = {
      * This is necessary to support immutable reducers.
      * @see https://github.com/rt2zz/redux-persist-transform-immutable
      */
-    immutableTransform(),
+    immutableTransform()
   ],
   key: 'root',
   storage: storage,
@@ -29,18 +31,21 @@ const persistConfig = {
    */
   blacklist: [
     // 'auth',
-  ],
+  ]
 }
 
 export default (rootReducer, rootSaga) => {
   const middleware = []
   const enhancers = []
 
+  const sagaMonitor = Reactotron.createSagaMonitor()
   // Connect the sagas to the redux store
-  const sagaMiddleware = createSagaMiddleware()
+  const sagaMiddleware = createSagaMiddleware({ sagaMonitor })
+
   middleware.push(sagaMiddleware)
 
   enhancers.push(applyMiddleware(...middleware))
+  enhancers.push(Reactotron.createEnhancer())
 
   // Redux persist
   const persistedReducer = persistReducer(persistConfig, rootReducer)
