@@ -3,7 +3,6 @@ import createSagaMiddleware from 'redux-saga'
 import { persistReducer, persistStore } from 'redux-persist'
 import immutableTransform from 'redux-persist-transform-immutable'
 import Reactotron from '../Config/Reactotron'
-import ReactoTron from 'reactotron-react-native'
 
 /**
  * This import defaults to localStorage for web and AsyncStorage for react-native.
@@ -26,11 +25,8 @@ const persistConfig = {
   ],
   key: 'root',
   storage: storage,
-  /**
-   * Blacklist state that we do not need/want to persist
-   */
-  blacklist: [
-    // 'auth',
+  whitelist: [
+    'authState' // only authState will be persisted
   ]
 }
 

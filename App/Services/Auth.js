@@ -3,9 +3,9 @@ import { Config } from '../Config'
 
 const config = {
   issuer: Config.GOOGLE_AUTH_URL,
-  clientId: Config.ANDROID_CLIENT_ID,
-  redirectUrl: Config.redirectUrl,
-  scopes: Config.scopes
+  clientId: Config.CLIENT_ID,
+  redirectUrl: Config.REDIRECT_URL,
+  scopes: Config.SCOPES
 }
 
 function auth() {
