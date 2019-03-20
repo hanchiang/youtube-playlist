@@ -4,6 +4,7 @@ import NavigationService from 'App/Services/NavigationService'
 import { View } from 'react-native'
 import styles from './RootScreenStyle'
 import ExampleScreen from 'App/Containers/Example/ExampleScreen'
+import HomeScreen from '../HomeScreen/HomeScreen'
 import SplashScreen from 'App/Containers/SplashScreen/SplashScreen'
 import { connect } from 'react-redux'
 import StartupActions from 'App/Stores/Startup/Actions'
@@ -20,13 +21,14 @@ const AppNav = createStackNavigator(
     SplashScreen: SplashScreen,
     // The main application screen is our "ExampleScreen". Feel free to replace it with your
     // own screen and remove the example.
-    MainScreen: ExampleScreen
+    MainScreen: ExampleScreen,
+    HomeScreen: HomeScreen
   },
   {
     // By default the application will show the splash screen
     initialRouteName: 'SplashScreen',
     // See https://reactnavigation.org/docs/en/stack-navigator.html#stacknavigatorconfig
-    headerMode: 'none',
+    headerMode: 'none'
   }
 )
 
@@ -55,7 +57,7 @@ class RootScreen extends Component {
 const mapStateToProps = (state) => ({})
 
 const mapDispatchToProps = (dispatch) => ({
-  startup: () => dispatch(StartupActions.startup()),
+  startup: () => dispatch(StartupActions.startup())
 })
 
 export default connect(

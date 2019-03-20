@@ -5,11 +5,6 @@ import { reactotronRedux } from 'reactotron-redux'
 import sagaPlugin from 'reactotron-redux-saga'
 import apisaucePlugin from 'reactotron-apisauce'
 
-Reactotron.clear()
-
-// horrible, but useful hack.... oh come on, don't look at me like that... it's JavaScript :|
-console.tron = Reactotron
-
 const reactotron = Reactotron
   .configure({ name: 'React native youtube playlist' }) // controls connection & communication settings
   .use(openInEditor())
@@ -22,5 +17,9 @@ const reactotron = Reactotron
   .use(sagaPlugin())
   .useReactNative() // add all built-in react native plugins
   .connect() // let's connect!
+
+// horrible, but useful hack.... oh come on, don't look at me like that... it's JavaScript :|
+console.tron = Reactotron
+Reactotron.clear()
 
 export default reactotron

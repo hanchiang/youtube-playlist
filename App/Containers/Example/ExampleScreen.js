@@ -3,7 +3,6 @@ import { Platform, Text, View, Button } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import ExampleActions from 'App/Stores/Example/Actions'
-import AuthActions from '../../Stores/Auth/Actions'
 import { liveInEurope } from 'App/Stores/Example/Selectors'
 import Style from './ExampleScreenStyle'
 
@@ -22,7 +21,6 @@ const instructions = Platform.select({
 class ExampleScreen extends React.Component {
   componentDidMount() {
     this.props.fetchUser()
-    this.props.auth()
   }
 
   render() {
@@ -71,7 +69,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchUser: () => dispatch(ExampleActions.fetchUser()),
-  auth: () => dispatch(AuthActions.authorize())
 })
 
 export default connect(

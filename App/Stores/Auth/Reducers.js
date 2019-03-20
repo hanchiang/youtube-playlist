@@ -2,25 +2,39 @@ import { createReducer } from 'reduxsauce'
 import { AuthTypes } from './Actions'
 
 const INITIAL_STATE = {
-  auth: null,
-  authIsLoadingg: false,
-  authErrorMessage: null
+  accessTokenExpirationDate: null,
+  refreshToken: null,
+  idToken: null,
+  scopes: [],
+  accessToken: null,
+  isLoading: false,
+  errorMessage: null
 }
 
 export const authorizeLoading = (state) => ({
-  authIsLoadingg: true
+  ...state,
+  isLoading: true
 })
 
 export const authorizeSuccess = (state, { result }) => ({
-  auth: result,
-  authIsLoadingg: false,
-  authErrorMessage: null
+  accessTokenExpirationDate: result.accessTokenExpirationDate,
+  refreshToken: result.refreshToken,
+  idToken: result.isToken,
+  scopes: result.scopes,
+  accessToken: result.accessToken,
+  isLoading: false,
+  errorMessage: null
 })
 
 export const authorizeFailure = (state, { errorMessage }) => ({
   auth: null,
-  authIsLoading: false,
-  authErrorMesage: errorMessage
+  isLoading: false,
+  errorMessage: errorMessage,
+  accessTokenExpirationDate: null,
+  refreshToken: null,
+  idToken: null,
+  scopes: [],
+  accessToken: null
 })
 
 export default createReducer(INITIAL_STATE, {
