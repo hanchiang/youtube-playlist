@@ -8,7 +8,7 @@ export default StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: Colors.primary,
+    backgroundColor: Colors.primary
   },
   logo: {
     display: 'flex',
@@ -16,6 +16,6 @@ export default StyleSheet.create({
     alignItems: 'center',
     height: 70,
     width: 70,
-    backgroundColor: 'white',
-  },
+    backgroundColor: 'white'
+  }
 })

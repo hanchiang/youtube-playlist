@@ -7,38 +7,38 @@ export default StyleSheet.create({
     ...ApplicationStyles.screen.container,
     margin: 30,
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   title: {
     ...Fonts.style.h2,
     textAlign: 'center',
-    marginBottom: 10,
+    marginBottom: 10
   },
   text: {
     ...Fonts.style.normal,
     textAlign: 'center',
-    marginBottom: 5,
+    marginBottom: 5
   },
   instructions: {
     ...Fonts.style.normal,
     textAlign: 'center',
     marginBottom: 5,
-    fontStyle: 'italic',
+    fontStyle: 'italic'
   },
   loading: {
     ...Fonts.style.normal,
     textAlign: 'center',
-    marginBottom: 5,
+    marginBottom: 5
   },
   result: {
     ...Fonts.style.normal,
     textAlign: 'center',
-    marginBottom: 5,
+    marginBottom: 5
   },
   error: {
     ...Fonts.style.normal,
     textAlign: 'center',
     marginBottom: 5,
-    color: 'red',
-  },
+    color: 'red'
+  }
 })

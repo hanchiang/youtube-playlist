@@ -15,7 +15,7 @@ import Style from './ExampleScreenStyle'
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\nCmd+D or shake for dev menu.',
-  android: 'Double tap R on your keyboard to reload,\nShake or press menu button for dev menu.',
+  android: 'Double tap R on your keyboard to reload,\nShake or press menu button for dev menu.'
 })
 
 class ExampleScreen extends React.Component {
@@ -68,7 +68,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchUser: () => dispatch(ExampleActions.fetchUser()),
+  fetchUser: () => dispatch(ExampleActions.fetchUser())
 })
 
 export default connect(

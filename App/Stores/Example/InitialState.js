@@ -6,5 +6,5 @@ import { Map, List } from 'immutable'
 export const INITIAL_STATE = Map({
   user: List(),
   userIsLoading: false,
-  userErrorMessage: null,
+  userErrorMessage: null
 })

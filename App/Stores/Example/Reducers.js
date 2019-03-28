@@ -12,21 +12,21 @@ import { List } from 'immutable'
 export const fetchUserLoading = (state) =>
   state.merge({
     userIsLoading: true,
-    userErrorMessage: '',
+    userErrorMessage: ''
   })
 
 export const fetchUserSuccess = (state, { user }) =>
   state.merge({
     user: user,
     userIsLoading: false,
-    userErrorMessage: null,
+    userErrorMessage: null
   })
 
 export const fetchUserFailure = (state, { errorMessage }) =>
   state.merge({
     user: List(),
     userIsLoading: false,
-    userErrorMessage: errorMessage,
+    userErrorMessage: errorMessage
   })
 
 /**
@@ -35,5 +35,5 @@ export const fetchUserFailure = (state, { errorMessage }) =>
 export default createReducer(INITIAL_STATE, {
   [ExampleTypes.FETCH_USER_LOADING]: fetchUserLoading,
   [ExampleTypes.FETCH_USER_SUCCESS]: fetchUserSuccess,
-  [ExampleTypes.FETCH_USER_FAILURE]: fetchUserFailure,
+  [ExampleTypes.FETCH_USER_FAILURE]: fetchUserFailure
 })
