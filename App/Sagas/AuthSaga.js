@@ -11,6 +11,7 @@ export function* authorize() {
     console.tron.log(result)
     yield put(AuthActions.authorizeSuccess(result))
   } catch (error) {
+    console.log(error)
     console.tron.log(error)
     yield put(
       AuthActions.authorizeFailure(Platform.select({
