@@ -1,5 +1,5 @@
 if (__DEV__) {
-  import('./App/Config/Reactotron').then(() => console.log('Reactotron Configured'))
+  import('./App/Config/Reactotron').then(() => console.tron.log('Reactotron Configured'))
 }
 
 import { AppRegistry } from 'react-native'
