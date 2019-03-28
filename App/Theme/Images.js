@@ -3,5 +3,5 @@
  */
 
 export default {
-  // logo: require('../Images/logo.png'),
+  splashLogo: require('../Images/youtube_music.png')
 }

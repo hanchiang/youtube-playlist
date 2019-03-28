@@ -10,12 +10,15 @@ export default StyleSheet.create({
     alignItems: 'center',
     backgroundColor: Colors.primary
   },
-  logo: {
+  logoContainer: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     height: 70,
-    width: 70,
-    backgroundColor: 'white'
+    width: 70
+  },
+  logo: {
+    maxWidth: 100,
+    maxHeight: 100
   }
 })
