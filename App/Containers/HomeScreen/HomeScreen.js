@@ -9,7 +9,7 @@ import AuthActions from '../../Stores/Auth/Actions'
 
 class HomeScreen extends React.Component {
   componentDidMount() {
-    this.props.authorize()
+    // this.props.authorize()
   }
 
   render() {
