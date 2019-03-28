@@ -3,11 +3,13 @@
  *
  * Use it to define generic component styles (e.g. the default text styles, default button styles...).
  */
+import Metrics from './Metrics'
 
 export default {
   screen: {
     container: {
-      flex: 1
+      flex: 1,
+      padding: Metrics.baseMargin
     }
   }
 }

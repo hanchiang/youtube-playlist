@@ -1,5 +1,7 @@
 import React from 'react'
 import { Text, View } from 'react-native'
+import { Icon } from 'react-native-elements'
+
 import styles from './HomeScreenStyle'
 
 import { connect } from 'react-redux'
@@ -14,8 +16,17 @@ class HomeScreen extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.logo}>
-          <Text>YOUTUBE PLAYLIST API</Text>
-          <Text>{JSON.stringify(this.props.authState, undefined, 2)}</Text>
+          <Text>Home</Text>
+          <Icon
+            name="autorenew"
+            type="material"
+          />
+          <Icon
+            name='sc-telegram'
+            type='evilicon'
+            color='#517fa4'
+          />
+          <Text>Footer</Text>
         </View>
       </View>
     )
