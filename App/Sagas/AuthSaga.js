@@ -8,16 +8,10 @@ export function* authorize() {
 
   try {
     const result = yield call(authService.auth)
-    console.tron.log(result)
     yield put(AuthActions.authorizeSuccess(result))
   } catch (error) {
-    console.log(error)
-    console.tron.log(error)
     yield put(
-      AuthActions.authorizeFailure(Platform.select({
-        android: error.code,
-        ios: error.userInfo.NSLocalizedDescription
-      }))
+      AuthActions.authorizeFailure(error.message || error.code)
     )
   }
 }
