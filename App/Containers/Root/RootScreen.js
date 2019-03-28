@@ -29,8 +29,7 @@ const App = createAppContainer(AppNav)
 
 class RootScreen extends Component {
   componentDidMount() {
-    // Run the startup saga when the application is starting
-    // this.props.startup()
+
   }
 
   render() {
