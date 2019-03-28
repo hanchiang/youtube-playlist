@@ -9,7 +9,8 @@ export default {
   screen: {
     container: {
       flex: 1,
-      padding: Metrics.baseMargin
+      paddingVertical: Metrics.mediumMargin,
+      paddingHorizontal: Metrics.baseMargin
     }
   }
 }

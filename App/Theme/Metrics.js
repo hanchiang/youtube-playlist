@@ -6,5 +6,6 @@ export default {
   // Examples of metrics you can define:
   baseMargin: 10,
   largeMargin: 20,
+  mediumMargin: 15,
   smallMargin: 5
 }
