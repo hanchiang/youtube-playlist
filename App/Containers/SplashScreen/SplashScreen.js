@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View, Image } from 'react-native'
+import { View, Image } from 'react-native'
 
 import styles from './SplashScreenStyle'
 import { Images } from '../../Theme'
