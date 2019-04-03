@@ -11,5 +11,6 @@ export default {
   text: '#212529',
   primary: '#007bff',
   success: '#28a745',
-  error: '#dc3545'
+  error: '#dc3545',
+  googleRed: '#D54B40'
 }

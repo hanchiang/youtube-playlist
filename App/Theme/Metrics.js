@@ -1,11 +1,13 @@
 /**
- * This file contains metric values that are global to the application.
+ * This file contains metric values that are global to the application. Mainly for margin and padding
  */
 
 export default {
   // Examples of metrics you can define:
-  baseMargin: 10,
-  largeMargin: 20,
-  mediumMargin: 15,
-  smallMargin: 5
+  small: 5,
+  base: 10,
+  medium: 15,
+  large: 20,
+  larger: 30,
+  huge: 50
 }
