@@ -3,5 +3,6 @@
  */
 
 export default {
-  splashLogo: require('../Images/youtube_music.png')
+  splashLogo: require('../Images/youtube_music.png'),
+  homescreenBG: require('../Images/ocean_background.jpeg')
 }
