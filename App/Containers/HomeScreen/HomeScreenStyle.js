@@ -10,9 +10,14 @@ export default StyleSheet.create({
   container: {
     ...ApplicationStyles.screen.container,
     paddingVertical: Metrics.medium,
-    paddingHorizontal: Metrics.base,
-    alignItems: 'center',
-    marginTop: 2 * Metrics.huge
+    paddingHorizontal: Metrics.large,
+    paddingTop: 2 * Metrics.huge,
+    alignItems: 'center'
+  },
+  heading: {
+    textAlign: 'center',
+    marginBottom: Metrics.large,
+    color: '#eee'
   },
   logo: {
     ...ApplicationStyles.image.logo,

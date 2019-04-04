@@ -1,6 +1,6 @@
 import React from 'react'
 import { Image, View, ImageBackground } from 'react-native'
-import { Button } from 'react-native-elements'
+import { Button, Text } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
 import styles from './HomeScreenStyle'
@@ -23,6 +23,7 @@ class HomeScreen extends React.Component {
         blurRadius={5}
       >
         <View style={styles.container}>
+          <Text h2 style={styles.heading}>Youtube playlist manager</Text>
           <Image
             source={Images.splashLogo}
             style={styles.logo}
