@@ -3,8 +3,6 @@ import AuthActions from '../Stores/Auth/Actions'
 import authService from '../Services/Auth'
 
 export function* authorize() {
-  yield put(AuthActions.authorizeLoading())
-
   try {
     const result = yield call(authService.auth)
     yield put(AuthActions.authorizeSuccess(result))
