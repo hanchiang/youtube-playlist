@@ -14,8 +14,9 @@
     "android-bundle": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res",
     "android-dev": "react-native run-android",
     "android-log": "react-native log-android",
-    "ios-dev": "react-native run-ios",
-    "ios-log": "react-native log-ios"
+    "ios-dev": "react-native run-ios --simulator=\"iPhone X\"",
+    "ios-log": "react-native log-ios",
+    "ios-list": "xcrun simctl list devices"
   },
   "dependencies": {
     "apisauce": "^1.0.2",
