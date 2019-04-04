@@ -23,7 +23,14 @@ const style = {
   }
 }
 
+const icon = {
+  small: 15,
+  medium: 30,
+  large: 45
+}
+
 export default {
   size,
-  style
+  style,
+  icon
 }

@@ -17,8 +17,5 @@ export default StyleSheet.create({
     height: 70,
     width: 70
   },
-  logo: {
-    maxWidth: 100,
-    maxHeight: 100
-  }
+  logo: { ...ApplicationStyles.image.logo }
 })

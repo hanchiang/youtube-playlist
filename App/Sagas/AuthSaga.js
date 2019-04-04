@@ -1,4 +1,3 @@
-import { Platform } from 'react-native'
 import { put, call } from 'redux-saga/effects'
 import AuthActions from '../Stores/Auth/Actions'
 import authService from '../Services/Auth'

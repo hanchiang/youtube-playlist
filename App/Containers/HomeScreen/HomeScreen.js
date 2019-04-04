@@ -1,40 +1,59 @@
 import React from 'react'
-import { Text, View } from 'react-native'
-import { Icon } from 'react-native-elements'
+import { Image, View, ImageBackground } from 'react-native'
+import { Button, Text } from 'react-native-elements'
+import Icon from 'react-native-vector-icons/FontAwesome'
 
 import styles from './HomeScreenStyle'
+import { Images, Fonts } from '../../Theme'
 
 import { connect } from 'react-redux'
 import AuthActions from '../../Stores/Auth/Actions'
 
 class HomeScreen extends React.Component {
-  componentDidMount() {
-    // this.props.authorize()
+  onClickGoogle = () => {
+    this.props.authorize()
   }
 
   render() {
     return (
-      <View style={styles.container}>
-        <View style={styles.logo}>
-          <Text>Home</Text>
-          <Icon
-            name="autorenew"
-            type="material"
+      <ImageBackground
+        source={Images.homescreenBG}
+        style={styles.bg}
+        resizeMode="cover"
+        blurRadius={5}
+      >
+        <View style={styles.container}>
+          <Text h2 style={styles.heading}>Youtube playlist manager</Text>
+          <Image
+            source={Images.splashLogo}
+            style={styles.logo}
           />
-          <Icon
-            name='sc-telegram'
-            type='evilicon'
-            color='#517fa4'
+
+          <Button
+            title="Sign in with Google"
+            buttonStyle={styles.buttonStyle}
+            titleStyle={styles.titleStyle}
+            icon={
+              <Icon
+                name="google"
+                size={Fonts.icon.medium}
+                color="white"
+                style={styles.googleIcon}
+              />
+            }
+            onPress={this.onClickGoogle}
+            loading={this.props.isLoading}
+            loadingStyle={styles.loadingStyle}
           />
-          <Text>Footer</Text>
         </View>
-      </View>
+      </ImageBackground>
     )
   }
 }
 
 const mapStateToProps = (state) => ({
-  authState: state.authState
+  authState: state.authState,
+  isLoading: state.authState.isLoading
 })
 
 const mapDispatchToProps = (dispatch) => ({

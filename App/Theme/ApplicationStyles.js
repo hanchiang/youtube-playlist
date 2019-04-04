@@ -8,9 +8,22 @@ import Metrics from './Metrics'
 export default {
   screen: {
     container: {
-      flex: 1,
-      paddingVertical: Metrics.mediumMargin,
-      paddingHorizontal: Metrics.baseMargin
+      flex: 1
+    }
+  },
+  image: {
+    logo: {
+      maxWidth: 100,
+      maxHeight: 100
+    }
+  },
+  button: {
+    default: {
+      paddingHorizontal: 20,
+      paddingVertical: 10
+    },
+    loading: {
+      paddingVertical: 3
     }
   }
 }
