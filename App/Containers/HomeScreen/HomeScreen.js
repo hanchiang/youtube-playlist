@@ -14,7 +14,7 @@ class HomeScreen extends React.Component {
   static propTypes = {
     authorize: PropTypes.func.isRequired,
     refreshAccessToken: PropTypes.func.isRequired,
-    isLoading: PropTypes.bool.isRequired,
+    isAuthenticating: PropTypes.bool.isRequired,
     isAuthenticated: PropTypes.bool.isRequired,
     errorMessage: PropTypes.string,
     refreshToken: PropTypes.string
@@ -61,7 +61,7 @@ class HomeScreen extends React.Component {
               />
             }
             onPress={this.onClickGoogle}
-            loading={this.props.isLoading}
+            loading={this.props.isAuthenticating}
             loadingStyle={styles.loadingStyle}
           />
 
@@ -77,7 +77,7 @@ class HomeScreen extends React.Component {
 
 const mapStateToProps = (state) => ({
   refreshToken: state.authState.auth && state.authState.auth.refreshToken,
-  isLoading: state.authState.isLoading,
+  isAuthenticating: state.authState.isAuthenticating,
   isAuthenticated: state.authState.isAuthenticated,
   errorMessage: state.authState.errorMessage
 })
