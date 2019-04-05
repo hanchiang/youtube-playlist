@@ -42,7 +42,7 @@ class HomeScreen extends React.Component {
               />
             }
             onPress={this.onClickGoogle}
-            loading={this.props.isLoading}
+            loading={this.props.isAuthenticating}
             loadingStyle={styles.loadingStyle}
           />
         </View>
@@ -53,7 +53,7 @@ class HomeScreen extends React.Component {
 
 const mapStateToProps = (state) => ({
   authState: state.authState,
-  isLoading: state.authState.isLoading
+  isAuthenticating: state.authState.isAuthenticating
 })
 
 const mapDispatchToProps = (dispatch) => ({
