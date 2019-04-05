@@ -26,7 +26,7 @@ const persistConfig = {
   key: 'root',
   storage: storage,
   whitelist: [
-    'authState' // only authState will be persisted
+    // 'authState' // only authState will be persisted
   ]
 }
 

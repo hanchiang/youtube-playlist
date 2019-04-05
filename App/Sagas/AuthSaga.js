@@ -12,3 +12,13 @@ export function* authorize() {
     )
   }
 }
+
+export function* refreshAccessToken(action) {
+  try {
+    // TODO: verify id token
+    const result = yield call(authService.refreshAccesstoken, action.refreshToken)
+    yield put(AuthActions.refreshAccessTokenSuccess(result))
+  } catch (error) {
+    yield put(AuthActions.refreshAccessTokenFailure(error.message))
+  }
+}
