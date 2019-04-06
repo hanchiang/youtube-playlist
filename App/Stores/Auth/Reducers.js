@@ -34,8 +34,6 @@ const refreshAccessToken = (state) => ({
 })
 
 const refreshAccessTokenSuccess = (state, { auth }) => {
-  // TODO: for idToken, name, picture, given_name, family_name, locale may be omitted for some reason.
-  // probably need to refresh again
   const { refreshToken, ...rest } = auth
   return {
     ...state,
