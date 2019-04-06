@@ -22,7 +22,7 @@ class HomeScreen extends React.Component {
 
   static defaultProps = {
     refreshToken: null,
-    errorMessage: null
+    errorMessage: ''
   }
 
   onClickGoogle = () => {

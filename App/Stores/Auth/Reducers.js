@@ -4,7 +4,7 @@ import { AuthTypes } from './Actions'
 const INITIAL_STATE = {
   auth: null,
   isAuthenticating: false,
-  errorMessage: null,
+  errorMessage: '',
   isAuthenticated: false,
   isRefreshingToken: false
 }
