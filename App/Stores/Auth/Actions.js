@@ -2,7 +2,7 @@ import { createActions } from 'reduxsauce'
 
 const { Types, Creators } = createActions({
   authorize: null,
-  authorizeSuccess: ['result'],
+  authorizeSuccess: ['auth'],
   authorizeFailure: ['errorMessage'],
   refreshAccessToken: ['refreshToken'],
   refreshAccessTokenSuccess: ['auth'],

@@ -4,9 +4,9 @@ import { AuthTypes } from './Actions'
 const INITIAL_STATE = {
   auth: null,
   isAuthenticating: false,
-  errorMessage: '',
   isAuthenticated: false,
-  isRefreshingToken: false
+  isRefreshingToken: false,
+  errorMessage: ''
 }
 
 export const authorize = (state) => ({
@@ -14,10 +14,10 @@ export const authorize = (state) => ({
   isAuthenticating: true
 })
 
-export const authorizeSuccess = (state, { result }) => ({
-  auth: result,
+export const authorizeSuccess = (state, { auth }) => ({
+  auth,
   isAuthenticating: false,
-  errorMessage: null,
+  errorMessage: '',
   isAuthenticated: true
 })
 
@@ -44,7 +44,7 @@ const refreshAccessTokenSuccess = (state, { auth }) => {
     },
     isAuthenticated: true,
     isRefreshingToken: false,
-    errorMessage: null
+    errorMessage: ''
   }
 }
 
