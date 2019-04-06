@@ -1,5 +1,7 @@
 import { put, call } from 'redux-saga/effects'
+
 import AuthActions from '../Stores/Auth/Actions'
+import UserActions from '../Stores/User/Actions'
 import authService from '../Services/Auth'
 import { Config } from '../Config'
 
@@ -14,6 +16,16 @@ export function* authorize() {
     if (decodedIdToken.aud === Config.CLIENT_ID) {
       yield put(AuthActions.authorizeSuccess(result))
       // Save user info in user reducer
+      yield put(UserActions.setUser({
+        id: decodedIdToken.sub,
+        email: decodedIdToken.email,
+        emailVerified: decodedIdToken.email_verified === 'true',
+        name: decodedIdToken.name,
+        givenName: decodedIdToken.given_name,
+        familyName: decodedIdToken.family_name,
+        picture: decodedIdToken.picture,
+        locale: decodedIdToken.locale
+      }))
     } else {
       yield put(AuthActions.authorizeFailure('aud claim in id token does not matchh app\'s client id'))
     }
