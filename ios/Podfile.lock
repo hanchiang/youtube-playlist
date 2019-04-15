@@ -2,48 +2,56 @@ PODS:
   - AppAuth (0.95.0)
   - boost-for-react-native (1.63.0)
   - DoubleConversion (1.1.6)
-  - Folly (2016.10.31.00):
+  - Folly (2018.10.22.00):
     - boost-for-react-native
     - DoubleConversion
     - glog
   - glog (0.3.5)
-  - React (0.57.8):
-    - React/Core (= 0.57.8)
-  - React/Core (0.57.8):
-    - yoga (= 0.57.8.React)
-  - React/CxxBridge (0.57.8):
-    - Folly (= 2016.10.31.00)
+  - React (0.59.3):
+    - React/Core (= 0.59.3)
+  - React/Core (0.59.3):
+    - yoga (= 0.59.3.React)
+  - React/CxxBridge (0.59.3):
+    - Folly (= 2018.10.22.00)
     - React/Core
     - React/cxxreact
-  - React/cxxreact (0.57.8):
+    - React/jsiexecutor
+  - React/cxxreact (0.59.3):
     - boost-for-react-native (= 1.63.0)
-    - Folly (= 2016.10.31.00)
-    - React/jschelpers
+    - DoubleConversion
+    - Folly (= 2018.10.22.00)
+    - glog
     - React/jsinspector
-  - React/DevSupport (0.57.8):
+  - React/DevSupport (0.59.3):
     - React/Core
     - React/RCTWebSocket
-  - React/fishhook (0.57.8)
-  - React/jschelpers (0.57.8):
-    - Folly (= 2016.10.31.00)
-    - React/PrivateDatabase
-  - React/jsinspector (0.57.8)
-  - React/PrivateDatabase (0.57.8)
-  - React/RCTAnimation (0.57.8):
+  - React/fishhook (0.59.3)
+  - React/jsi (0.59.3):
+    - DoubleConversion
+    - Folly (= 2018.10.22.00)
+    - glog
+  - React/jsiexecutor (0.59.3):
+    - DoubleConversion
+    - Folly (= 2018.10.22.00)
+    - glog
+    - React/cxxreact
+    - React/jsi
+  - React/jsinspector (0.59.3)
+  - React/RCTAnimation (0.59.3):
     - React/Core
-  - React/RCTBlob (0.57.8):
+  - React/RCTBlob (0.59.3):
     - React/Core
-  - React/RCTNetwork (0.57.8):
+  - React/RCTNetwork (0.59.3):
     - React/Core
-  - React/RCTText (0.57.8):
+  - React/RCTText (0.59.3):
     - React/Core
-  - React/RCTWebSocket (0.57.8):
+  - React/RCTWebSocket (0.59.3):
     - React/Core
     - React/fishhook
     - React/RCTBlob
   - RNVectorIcons (6.4.2):
     - React
-  - yoga (0.57.8.React)
+  - yoga (0.59.3.React)
 
 DEPENDENCIES:
   - AppAuth (>= 0.94)
@@ -83,12 +91,12 @@ SPEC CHECKSUMS:
   AppAuth: 137f6bb6fc9dfbaf2cf9f6fcff1d336ff0163bc6
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   DoubleConversion: bb338842f62ab1d708ceb63ec3d999f0f3d98ecd
-  Folly: c89ac2d5c6ab169cd7397ef27485c44f35f742c7
-  glog: e8acf0ebbf99759d3ff18c86c292a5898282dcde
-  React: adbac0757ce35e92fbd447ab98c810209d27d9b0
+  Folly: de497beb10f102453a1afa9edbf8cf8a251890de
+  glog: aefd1eb5dda2ab95ba0938556f34b98e2da3a60d
+  React: b52fdb80565505b7e4592b313a38868f5df51641
   RNVectorIcons: 6607bd3a30291d0edb56f9bbe7ae411ee2b928b0
-  yoga: 74cdf036c30820443b25ade59916236b1e95ee93
+  yoga: 1a492113f66a35e9e583bb0434f4b8cc668dd839
 
-PODFILE CHECKSUM: 36e77122d9260011bb4ed8a6e348680419400979
+PODFILE CHECKSUM: c1b2ba4ed07b548092dea8001fe2c102d4d6534a
 
 COCOAPODS: 1.6.1
