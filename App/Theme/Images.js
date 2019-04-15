@@ -4,5 +4,6 @@
 
 export default {
   splashLogo: require('../Images/youtube_music.png'),
-  homescreenBG: require('../Images/ocean_background.jpeg')
+  homescreenBG: require('../Images/ocean_background.jpeg'),
+  logo: require('App/Images/TOM.png')
 }

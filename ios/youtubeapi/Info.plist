@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>youtubeapi</string>
+	<string>Youtube api</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -56,7 +56,7 @@
 	<array>
 		<dict>
 			<key>CFBundleURLName</key>
-			<string>com.youtubeapi</string>
+			<string>com.Youtube api</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>com.googleusercontent.apps.64955586048-58js5usgte9eiqo5sluuo7rmp9d5s1bs</string>

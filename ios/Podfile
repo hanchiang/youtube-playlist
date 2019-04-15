@@ -1,11 +1,11 @@
 # Uncomment the next line to define a global platform for your project
 platform :ios, '11.0'
 
-target 'youtubeapi' do
+target 'Youtubeapi' do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
   # use_frameworks!
 
-  # Pods for youtubeapi
+  # Pods for Youtubeapi
   # Your 'node_modules' directory is probably in the root of your project,
   # but if not, adjust the `:path` accordingly
   pod 'React', :path => '../node_modules/react-native', :subspecs => [
@@ -30,20 +30,20 @@ target 'youtubeapi' do
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
-  target 'youtubeapiTests' do
+  target 'YoutubeapiTests' do
     inherit! :search_paths
     # Pods for testing
   end
 
 end
 
-target 'youtubeapi-tvOS' do
+target 'Youtubeapi-tvOS' do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
   # use_frameworks!
 
-  # Pods for youtubeapi-tvOS
+  # Pods for Youtubeapi-tvOS
 
-  target 'youtubeapi-tvOSTests' do
+  target 'Youtubeapi-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end

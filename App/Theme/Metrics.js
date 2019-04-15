@@ -1,5 +1,5 @@
 /**
- * This file contains metric values that are global to the application. Mainly for margin and padding
+ * This file contains metric values that are global to the application.
  */
 
 export default {
