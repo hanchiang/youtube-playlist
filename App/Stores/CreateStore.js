@@ -1,7 +1,6 @@
 import { applyMiddleware, compose, createStore } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import { persistReducer, persistStore } from 'redux-persist'
-import immutableTransform from 'redux-persist-transform-immutable'
 import Reactotron from '../Config/Reactotron'
 
 /**
@@ -16,15 +15,14 @@ import Reactotron from '../Config/Reactotron'
 import storage from 'redux-persist/lib/storage'
 
 const persistConfig = {
-  transforms: [
-    /**
-     * This is necessary to support immutable reducers.
-     * @see https://github.com/rt2zz/redux-persist-transform-immutable
-     */
-    immutableTransform()
-  ],
   key: 'root',
   storage: storage,
+  /**
+   * Blacklist state that we do not need/want to persist
+   */
+  blacklist: [
+    // 'auth',
+  ],
   whitelist: [
     // 'authState' // only authState will be persisted
   ]
