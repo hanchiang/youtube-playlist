@@ -42,7 +42,9 @@ export function* authorize() {
  */
 export function* refreshAccessToken(action) {
   try {
+    // refresh tokens
     const refreshed = yield call(authService.refreshAccesstoken, action.refreshToken)
+    // verify id token
     const { data: decodedIdToken } = yield call(authService.validateIdToken, refreshed.idToken)
 
     if (decodedIdToken.aud === Config.CLIENT_ID) {
