@@ -6,6 +6,7 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 
 import styles from './HomeScreenStyle'
 import { Images, Fonts } from '../../Theme'
+import NavigationService from '../../Services/NavigationService'
 
 import { connect } from 'react-redux'
 import AuthActions from '../../Stores/Auth/Actions'
@@ -23,6 +24,18 @@ class HomeScreen extends React.Component {
   static defaultProps = {
     refreshToken: null,
     errorMessage: ''
+  }
+
+  componentDidMount() {
+    if (this.props.isAuthenticated) {
+      NavigationService.navigateAndReset('ListScreen')
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.isAuthenticating && !this.props.isAuthenticating && this.props.isAuthenticated) {
+      NavigationService.navigateAndReset('ListScreen')
+    }
   }
 
   onClickGoogle = () => {

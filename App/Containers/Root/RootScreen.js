@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import NavigationService from 'App/Services/NavigationService'
 import AppNavigator from 'App/Navigators/AppNavigator'
 import { View } from 'react-native'
+
 import styles from './RootScreenStyle'
 import StartupActions from 'App/Stores/Startup/Actions'
 
