@@ -14,15 +14,12 @@ import AuthActions from '../../Stores/Auth/Actions'
 class HomeScreen extends React.Component {
   static propTypes = {
     authorize: PropTypes.func.isRequired,
-    refreshAccessToken: PropTypes.func.isRequired,
     isAuthenticating: PropTypes.bool.isRequired,
     isAuthenticated: PropTypes.bool.isRequired,
-    errorMessage: PropTypes.string,
-    refreshToken: PropTypes.string
+    errorMessage: PropTypes.string
   }
 
   static defaultProps = {
-    refreshToken: null,
     errorMessage: ''
   }
 
@@ -40,10 +37,6 @@ class HomeScreen extends React.Component {
 
   onClickGoogle = () => {
     this.props.authorize()
-  }
-
-  refreshAccessToken = () => {
-    this.props.refreshAccessToken(this.props.refreshToken)
   }
 
   render() {
@@ -76,11 +69,8 @@ class HomeScreen extends React.Component {
             onPress={this.onClickGoogle}
             loading={this.props.isAuthenticating}
             loadingStyle={styles.loadingStyle}
-          />
-
-          <Button
-            title="refresh access token"
-            onPress={this.refreshAccessToken}
+            disabled={this.props.isAuthenticating}
+            disabledStyle={styles.disabledStyle}
           />
         </View>
       </ImageBackground>
@@ -89,15 +79,13 @@ class HomeScreen extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  refreshToken: state.authState.auth && state.authState.auth.refreshToken,
   isAuthenticating: state.authState.isAuthenticating,
   isAuthenticated: state.authState.isAuthenticated,
   errorMessage: state.authState.errorMessage
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  authorize: () => dispatch(AuthActions.authorize()),
-  refreshAccessToken: refreshToken => dispatch(AuthActions.refreshAccessToken(refreshToken))
+  authorize: () => dispatch(AuthActions.authorize())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen)

@@ -37,5 +37,8 @@ export default StyleSheet.create({
   },
   loadingStyle: {
     ...ApplicationStyles.button.loading
+  },
+  disabledStyle: {
+    backgroundColor: Colors.mutedGoogleRed
   }
 })
