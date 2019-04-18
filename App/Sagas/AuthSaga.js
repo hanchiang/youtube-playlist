@@ -2,7 +2,7 @@ import { put, call } from 'redux-saga/effects'
 
 import AuthActions from '../Stores/Auth/Actions'
 import UserActions from '../Stores/User/Actions'
-import authService from '../Services/AuthService'
+import { authService } from '../Services/AuthService'
 import { Config } from '../Config'
 
 /**
@@ -19,7 +19,6 @@ export function* authorize() {
       const decodedIdToken = result.data
 
       if (decodedIdToken.aud === Config.CLIENT_ID) {
-        yield put(AuthActions.authorizeSuccess(tokens))
         // Save user info in user reducer
         yield put(UserActions.setUser({
           id: decodedIdToken.sub,
@@ -31,6 +30,8 @@ export function* authorize() {
           picture: decodedIdToken.picture,
           locale: decodedIdToken.locale
         }))
+
+        yield put(AuthActions.authorizeSuccess(tokens))
       } else {
         yield put(AuthActions.authorizeFailure('aud claim in id token does not matchh app\'s client id'))
       }
@@ -51,7 +52,7 @@ export function* authorize() {
 export function* refreshAccessToken(action) {
   try {
     // refresh tokens
-    const refreshed = yield call(authService.refreshAccesstoken, action.refreshToken)
+    const refreshed = yield call(authService.refreshAccessToken, action.refreshToken)
     // verify id token
     const result = yield call(authService.validateIdToken, refreshed.idToken)
 

@@ -23,7 +23,7 @@ function auth() {
  * Returns accessToken, accessTokenExpirationDate, additionalParameters, idToken, refreshToken(sometimes null), tokenType
  * @param {string} refreshToken
  */
-async function refreshAccesstoken(refreshToken) {
+function refreshAccessToken(refreshToken) {
   return refresh(config, { refreshToken })
 }
 
@@ -39,6 +39,6 @@ api.addMonitor(Reactotron.apisauce)
 
 const validateIdToken = idToken => api.get(`/tokeninfo?id_token=${idToken}`)
 
-export default {
-  auth, refreshAccesstoken, validateIdToken
+export const authService = {
+  auth, refreshAccessToken, validateIdToken
 }

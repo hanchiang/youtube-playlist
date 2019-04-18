@@ -4,15 +4,13 @@ import { PersistGate } from 'redux-persist/lib/integration/react'
 import createStore from 'App/Stores'
 import RootScreen from './Containers/Root/RootScreen'
 
-const { store, persistor } = createStore()
-
 export default class App extends Component {
   render() {
     return (
       /**
        * @see https://github.com/reduxjs/react-redux/blob/master/docs/api.md#provider-store
        */
-      <Provider store={store}>
+      <Provider store={createStore.store}>
         {/**
          * PersistGate delays the rendering of the app's UI until the persisted state has been retrieved
          * and saved to redux.
@@ -20,7 +18,7 @@ export default class App extends Component {
          * for example `loading={<SplashScreen />}`.
          * @see https://github.com/rt2zz/redux-persist/blob/master/docs/PersistGate.md
          */}
-        <PersistGate loading={null} persistor={persistor}>
+        <PersistGate loading={null} persistor={createStore.persistor}>
           <RootScreen />
         </PersistGate>
       </Provider>
