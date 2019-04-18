@@ -4,7 +4,7 @@ import { AuthTypes } from '../Stores/Auth/Actions'
 import { StartupTypes } from 'App/Stores/Startup/Actions'
 import { YoutubeTypes } from 'App/Stores/Youtube/Actions'
 
-import { authorize, refreshAccessToken } from './AuthSaga'
+import { authorize, refreshAccessToken, logout } from './AuthSaga'
 import { startup } from './StartupSaga'
 import { fetchPlaylistsSaga } from './YoutubeSaga'
 
@@ -16,6 +16,7 @@ export default function* root() {
     takeLatest(StartupTypes.STARTUP, startup),
     takeLatest(AuthTypes.AUTHORIZE, authorize),
     takeLatest(AuthTypes.REFRESH_ACCESS_TOKEN, refreshAccessToken),
-    takeLatest(YoutubeTypes.FETCH_PLAYLISTS, fetchPlaylistsSaga)
+    takeLatest(YoutubeTypes.FETCH_PLAYLISTS, fetchPlaylistsSaga),
+    takeLatest(AuthTypes.LOGOUT, logout)
   ])
 }

@@ -55,11 +55,14 @@ const refreshAccessTokenFailure = (state, { errorMessage }) => ({
   errorMessage
 })
 
+const logout = () => INITIAL_STATE
+
 export default createReducer(INITIAL_STATE, {
   [AuthTypes.AUTHORIZE]: authorize,
   [AuthTypes.AUTHORIZE_SUCCESS]: authorizeSuccess,
   [AuthTypes.AUTHORIZE_FAILURE]: authorizeFailure,
   [AuthTypes.REFRESH_ACCESS_TOKEN]: refreshAccessToken,
   [AuthTypes.REFRESH_ACCESS_TOKEN_SUCCESS]: refreshAccessTokenSuccess,
-  [AuthTypes.REFRESH_ACCESS_TOKEN_FAILURE]: refreshAccessTokenFailure
+  [AuthTypes.REFRESH_ACCESS_TOKEN_FAILURE]: refreshAccessTokenFailure,
+  [AuthTypes.LOGOUT]: logout
 })
