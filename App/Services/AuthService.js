@@ -1,5 +1,5 @@
 import { create } from 'apisauce'
-import { authorize, refresh } from 'react-native-app-auth'
+import { authorize, refresh, revoke } from 'react-native-app-auth'
 import Reactotron from 'reactotron-react-native'
 
 import { Config } from '../Config'
@@ -28,6 +28,16 @@ function refreshAccessToken(refreshToken) {
 }
 
 /**
+ *
+ * @param {*} token access token or refresh token
+ */
+function revokeToken(token) {
+  return revoke(config, {
+    tokenToRevoke: token
+  })
+}
+
+/**
  * Google oauth endpoints
  */
 
@@ -40,5 +50,5 @@ api.addMonitor(Reactotron.apisauce)
 const validateIdToken = idToken => api.get(`/tokeninfo?id_token=${idToken}`)
 
 export const authService = {
-  auth, refreshAccessToken, validateIdToken
+  auth, refreshAccessToken, validateIdToken, revokeToken
 }

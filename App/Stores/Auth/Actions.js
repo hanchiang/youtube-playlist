@@ -6,7 +6,9 @@ const { Types, Creators } = createActions({
   authorizeFailure: ['errorMessage'],
   refreshAccessToken: ['refreshToken'],
   refreshAccessTokenSuccess: ['auth'],
-  refreshAccessTokenFailure: ['errorMessage']
+  refreshAccessTokenFailure: ['errorMessage'],
+  logout: null,
+  logoutSuccess: null
 })
 
 export const AuthTypes = Types

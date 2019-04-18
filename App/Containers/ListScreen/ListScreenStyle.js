@@ -6,7 +6,6 @@ export default StyleSheet.create({
   container: {
     ...ApplicationStyles.screen.container,
     paddingVertical: Metrics.medium,
-    paddingHorizontal: Metrics.large,
-    alignItems: 'center'
+    paddingHorizontal: Metrics.large
   }
 })

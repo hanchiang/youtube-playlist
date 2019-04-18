@@ -1,9 +1,12 @@
-import { put, call } from 'redux-saga/effects'
+import { put, call, select } from 'redux-saga/effects'
 
 import AuthActions from '../Stores/Auth/Actions'
 import UserActions from '../Stores/User/Actions'
 import { authService } from '../Services/AuthService'
+import NavigationService from 'App/Services/NavigationService'
 import { Config } from '../Config'
+
+const getAccessToken = state => state.authState.auth.accessToken
 
 /**
  * Authenticate user, verify id token and save tokens and user info
@@ -69,5 +72,16 @@ export function* refreshAccessToken(action) {
     }
   } catch (error) {
     yield put(AuthActions.refreshAccessTokenFailure(error.message || error.code))
+  }
+}
+
+export function* logout(action) {
+  try {
+    const accessToken = yield select(getAccessToken)
+    const result = yield call(authService.revokeToken, accessToken)
+  } catch (error) {
+    console.log(error)
+  } finally {
+    NavigationService.navigateAndReset('MainScreen')
   }
 }
