@@ -69,6 +69,8 @@ class HomeScreen extends React.Component {
             onPress={this.onClickGoogle}
             loading={this.props.isAuthenticating}
             loadingStyle={styles.loadingStyle}
+            disabled={this.props.isAuthenticating}
+            disabledStyle={styles.disabledStyle}
           />
         </View>
       </ImageBackground>
