@@ -4,7 +4,7 @@ import { Image, View, ImageBackground } from 'react-native'
 import { Button, Text } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
-import styles from './HomeScreenStyle'
+import styles from './LoginScreenStyle'
 import { Images, Fonts } from '../../Theme'
 import NavigationService from '../../Services/NavigationService'
 

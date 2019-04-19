@@ -40,9 +40,9 @@ api.axiosInstance.interceptors.response.use(null, async (error) => {
 const getPlaylists = (data = {}) => {
   const {
     part = 'snippet,status,contentDetails',
-    fields = 'items(id,etag,status,contentDetails),items/snippet(publishedAt,channelId,title,description,thumbnails(high,standard,maxres))',
+    fields = 'kind,etag,nextPageToken,prevPageToken,pageInfo/totalResults,items(id,etag,status,contentDetails),items/snippet(publishedAt,channelId,title,description,channelTitle,tags,localized,thumbnails(high,standard,maxres))',
     mine = true,
-    maxResults = 50
+    maxResults = 10
   } = data
 
   return api.get('/playlists', {

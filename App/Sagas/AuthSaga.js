@@ -82,6 +82,6 @@ export function* logout(action) {
   } catch (error) {
     console.log(error)
   } finally {
-    NavigationService.navigateAndReset('MainScreen')
+    NavigationService.navigateAndReset('LoginScreen')
   }
 }
