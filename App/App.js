@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/lib/integration/react'
+
 import createStore from 'App/Stores'
 import RootScreen from './Containers/Root/RootScreen'
+import DelayRender from 'App/Components//DelayRender'
 
 export default class App extends Component {
   render() {
@@ -18,8 +20,14 @@ export default class App extends Component {
          * for example `loading={<SplashScreen />}`.
          * @see https://github.com/rt2zz/redux-persist/blob/master/docs/PersistGate.md
          */}
-        <PersistGate loading={null} persistor={createStore.persistor}>
-          <RootScreen />
+        <PersistGate
+          persistor={createStore.persistor}
+        >
+          {bootstrapped => (
+            <DelayRender bootstrapped={bootstrapped}>
+              <RootScreen />
+            </DelayRender>
+          )}
         </PersistGate>
       </Provider>
     )
