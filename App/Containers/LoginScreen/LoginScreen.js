@@ -25,13 +25,13 @@ class HomeScreen extends React.Component {
 
   componentDidMount() {
     if (this.props.isAuthenticated) {
-      NavigationService.navigateAndReset('ListScreen')
+      NavigationService.navigateAndReset('Main')
     }
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.isAuthenticating && !this.props.isAuthenticating && this.props.isAuthenticated) {
-      NavigationService.navigateAndReset('ListScreen')
+      NavigationService.navigateAndReset('Main')
     }
   }
 
