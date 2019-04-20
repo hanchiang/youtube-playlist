@@ -21,7 +21,7 @@ export const fetchPlaylists = (state) => ({
 
 export const fetchPlaylistsSuccess = (state, { result }) => ({
   playlists: result.items,
-  totalResult: result.pageInfo.totalResults,
+  totalResults: result.pageInfo.totalResults,
   resultsPerPage: result.pageInfo.resultsPerPage,
   totalPages: Math.ceil(result.pageInfo.totalResults / result.pageInfo.resultsPerPage),
   prevPageToken: result.prevPageToken,
