@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { View, FlatList } from 'react-native'
-import { Button, Text } from 'react-native-elements'
+import { Text } from 'react-native-elements'
+import dateFns from 'date-fns'
 
-import AuthActions from 'App/Stores/Auth/Actions'
+import ListItem from 'App/Components/ListItem/ListItem'
 import YoutubeActions from 'App/Stores/Youtube/Actions'
 import styles from './ListScreenStyle'
 
@@ -13,33 +14,35 @@ class ListScreen extends React.Component {
   static propTypes = {
     fetchPlaylists: PropTypes.func.isRequired,
     playlists: PropTypes.array.isRequired,
-    logout: PropTypes.func.isRequired
+    totalResults: PropTypes.number.isRequired
   }
 
   componentDidMount() {
     this.props.fetchPlaylists()
   }
 
-  logout = () => {
-    this.props.logout()
-  }
-
   render() {
     return (
       <View style={styles.container}>
-        <Text>List screen</Text>
+        <Text>Displaying {this.props.playlists.length} out of {this.props.totalResults} results</Text>
 
         <FlatList
           data={this.props.playlists}
           renderItem={({ item: playlist }) => (
-            <Text>{playlist.snippet.title} {playlist.status.privacyStatus}</Text>
+            <ListItem
+              title={playlist.snippet.localized.title}
+              subtitle={playlist.snippet.localized.description}
+              rightTitle={dateFns.format(playlist.snippet.publishedAt, 'ddd DD MMM YYYY')}
+              rightSubtitle={playlist.status.privacyStatus}
+              leftAvatar={{
+                source: { uri: playlist.snippet.thumbnails.high.url }
+              }}
+              badge={{
+                value: playlist.contentDetails.itemCount
+              }}
+            />
           )}
           keyExtractor={item => item.id}
-        />
-
-        <Button
-          title="Logout"
-          onPress={this.logout}
         />
       </View>
     )
@@ -47,12 +50,12 @@ class ListScreen extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  playlists: state.youtubeState.playlists
+  playlists: state.youtubeState.playlists,
+  totalResults: state.youtubeState.totalResults
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchPlaylists: () => dispatch(YoutubeActions.fetchPlaylists()),
-  logout: () => dispatch(AuthActions.logout())
+  fetchPlaylists: () => dispatch(YoutubeActions.fetchPlaylists())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListScreen)

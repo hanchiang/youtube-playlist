@@ -2,7 +2,7 @@ import { createActions } from 'reduxsauce'
 
 const { Types, Creators } = createActions({
   fetchPlaylists: null,
-  fetchPlaylistsSuccess: ['playlists'],
+  fetchPlaylistsSuccess: ['result'],
   fetchPlaylistsFailure: ['errorMessage']
 })
 
