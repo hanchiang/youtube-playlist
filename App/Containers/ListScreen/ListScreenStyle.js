@@ -7,5 +7,14 @@ export default StyleSheet.create({
     ...ApplicationStyles.screen.container,
     paddingVertical: Metrics.medium,
     paddingHorizontal: Metrics.large
+  },
+  pagination: {
+    marginTop: 15,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  },
+  centerText: {
+    textAlign: 'center'
   }
 })

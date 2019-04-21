@@ -6,33 +6,34 @@ const INITIAL_STATE = {
   playlists: [],
   totalResults: 0,
   resultsPerPage: 0,
+  currentPage: 0,
   totalPages: 0,
   prevPageToken: null,
   nextPageToken: null,
-
-  isLoading: false,
+  isFetching: false,
   errorMessage: null
 }
 
 export const fetchPlaylists = (state) => ({
   ...state,
-  isLoading: true
+  isFetching: true
 })
 
-export const fetchPlaylistsSuccess = (state, { result }) => ({
+export const fetchPlaylistsSuccess = (state, { result, currentPage }) => ({
   playlists: result.items,
   totalResults: result.pageInfo.totalResults,
   resultsPerPage: result.pageInfo.resultsPerPage,
+  currentPage: currentPage || 1,
   totalPages: Math.ceil(result.pageInfo.totalResults / result.pageInfo.resultsPerPage),
   prevPageToken: result.prevPageToken,
   nextPageToken: result.nextPageToken,
-  isLoading: false,
+  isFetching: false,
   errorMessage: null
 })
 
 export const fetchPlaylistsFailure = (state, { errorMessage }) => ({
   playlists: [],
-  isLoading: false,
+  isFetching: false,
   errorMessage
 })
 

@@ -8,7 +8,7 @@ export function* fetchPlaylistsSaga(action) {
   const result = yield call(youtubeService.getPlaylists)
 
   if (result.ok) {
-    yield put(YoutubeActions.fetchPlaylistsSuccess(result.data))
+    yield put(YoutubeActions.fetchPlaylistsSuccess(result.data, action.fetchPageNumber))
   } else {
     yield put(YoutubeActions.fetchPlaylistsFailure(apiErrorTransform(result)))
   }

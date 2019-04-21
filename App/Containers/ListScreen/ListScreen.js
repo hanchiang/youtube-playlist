@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { View, FlatList } from 'react-native'
-import { Text } from 'react-native-elements'
+import { Text, Button } from 'react-native-elements'
 import dateFns from 'date-fns'
 
 import ListItem from 'App/Components/ListItem/ListItem'
@@ -14,7 +14,10 @@ class ListScreen extends React.Component {
   static propTypes = {
     fetchPlaylists: PropTypes.func.isRequired,
     playlists: PropTypes.array.isRequired,
-    totalResults: PropTypes.number.isRequired
+    totalResults: PropTypes.number.isRequired,
+    currentPage: PropTypes.number.isRequired,
+    totalPages: PropTypes.number.isRequired,
+    isFetching: PropTypes.bool.isRequired
   }
 
   componentDidMount() {
@@ -24,7 +27,11 @@ class ListScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Displaying {this.props.playlists.length} out of {this.props.totalResults} results</Text>
+        {
+          this.props.playlists.length > 0 && (
+            <Text style={styles.centerText}>Displaying {this.props.playlists.length} out of {this.props.totalResults} results</Text>
+          )
+        }
 
         <FlatList
           data={this.props.playlists}
@@ -43,8 +50,25 @@ class ListScreen extends React.Component {
             />
           )}
           keyExtractor={item => item.id}
-          
         />
+
+        <View style={styles.pagination}>
+          <Button
+            title="Prev"
+            onPress={() => alert('prev page')}
+            disabled={this.props.currentPage === 1 || this.props.isFetching}
+          />
+          {
+            this.props.playlists.length > 0 && (
+              <Text style={styles.centerText}>Page {this.props.currentPage} out of {this.props.totalPages}</Text>
+            )
+          }
+          <Button
+            title="Next"
+            onPress={() => alert('next page')}
+            disabled={this.props.currentPage === this.props.totalPages || this.props.isFetching}
+          />
+        </View>
       </View>
     )
   }
@@ -52,7 +76,10 @@ class ListScreen extends React.Component {
 
 const mapStateToProps = (state) => ({
   playlists: state.youtubeState.playlists,
-  totalResults: state.youtubeState.totalResults
+  totalResults: state.youtubeState.totalResults,
+  currentPage: state.youtubeState.currentPage,
+  totalPages: state.youtubeState.totalPages,
+  isFetching: state.youtubeState.isFetching
 })
 
 const mapDispatchToProps = (dispatch) => ({
