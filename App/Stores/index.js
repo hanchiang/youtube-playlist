@@ -31,9 +31,15 @@ const authPersistConfig = {
   blacklist: ['isAuthenticating', 'isRefreshingToken', 'errorMessage']
 }
 
+const userPersistConfig = {
+  key: 'user',
+  storage,
+  whitelist: ['user']
+}
+
 const rootReducer = combineReducers({
   authState: persistReducer(authPersistConfig, authReducer),
-  userState: userReducer,
+  userState: persistReducer(userPersistConfig, userReducer),
   youtubeState: youtubeReducer
 })
 
