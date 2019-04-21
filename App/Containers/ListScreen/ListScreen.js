@@ -22,7 +22,8 @@ class ListScreen extends React.Component {
     totalPages: PropTypes.number.isRequired,
     isFetching: PropTypes.bool.isRequired,
     prevPageToken: PropTypes.string,
-    nextPageToken: PropTypes.string
+    nextPageToken: PropTypes.string,
+    name: PropTypes.string.isRequired
   }
 
   static defaultProps = {
@@ -60,7 +61,7 @@ class ListScreen extends React.Component {
       <View style={styles.container}>
         {
           this.props.playlists.length > 0 && (
-            <Text style={styles.centerText}>There are {this.props.totalResults} playlists</Text>
+            <Text style={styles.centerText}>Hi {this.props.name}! You have {this.props.totalResults} playlists</Text>
           )
         }
 
@@ -87,6 +88,7 @@ class ListScreen extends React.Component {
           <Button
             title="Prev"
             onPress={this.fetchPrevPage}
+            buttonStyle={styles.paginationButton}
             disabled={this.props.currentPage === 1 || this.props.isFetching}
           />
           {
@@ -97,6 +99,7 @@ class ListScreen extends React.Component {
           <Button
             title="Next"
             onPress={this.fetchNextPage}
+            buttonStyle={styles.paginationButton}
             disabled={this.props.currentPage === this.props.totalPages || this.props.isFetching}
           />
         </View>
@@ -106,6 +109,7 @@ class ListScreen extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
+  name: state.userState.user.name,
   playlists: getVisiblePlaylists(state),
   totalResults: state.youtubeState.totalResults,
   currentPage: state.youtubeState.currentPage,

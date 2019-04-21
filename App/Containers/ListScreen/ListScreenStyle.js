@@ -14,6 +14,9 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center'
   },
+  paginationButton: {
+    paddingHorizontal: 20
+  },
   centerText: {
     textAlign: 'center'
   }
