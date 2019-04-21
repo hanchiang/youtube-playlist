@@ -23,7 +23,8 @@ class ListScreen extends React.Component {
     isFetching: PropTypes.bool.isRequired,
     prevPageToken: PropTypes.string,
     nextPageToken: PropTypes.string,
-    name: PropTypes.string.isRequired
+    name: PropTypes.string.isRequired,
+    numFetchedPlaylists: PropTypes.number.isRequired
   }
 
   static defaultProps = {
@@ -37,7 +38,7 @@ class ListScreen extends React.Component {
 
   shouldFetchPlaylists = (fetchPageNumber) => {
     const playlistStartPos = (fetchPageNumber - 1) * INITIAL_STATE.DISPLAY_PER_PAGE
-    return playlistStartPos >= this.props.playlists.length
+    return playlistStartPos >= this.props.numFetchedPlaylists
   }
 
   fetchPrevPage = () => {
@@ -110,6 +111,7 @@ class ListScreen extends React.Component {
 
 const mapStateToProps = (state) => ({
   name: state.userState.user.name,
+  numFetchedPlaylists: state.youtubeState.playlists.length,
   playlists: getVisiblePlaylists(state),
   totalResults: state.youtubeState.totalResults,
   currentPage: state.youtubeState.currentPage,

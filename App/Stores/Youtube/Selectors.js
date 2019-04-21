@@ -4,7 +4,5 @@ export function getVisiblePlaylists(state) {
   const playlistStartPos = (currentPage - 1) * DISPLAY_PER_PAGE
   const playlistEndPos = Math.min(playlistStartPos + DISPLAY_PER_PAGE, playlists.length)
 
-  console.log(currentPage)
-
   return playlists.slice(playlistStartPos, playlistEndPos)
 }
