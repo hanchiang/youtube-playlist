@@ -38,11 +38,12 @@ class ListScreen extends React.Component {
                 source: { uri: playlist.snippet.thumbnails.high.url }
               }}
               badge={{
-                value: playlist.contentDetails.itemCount
+                value: playlist.contentDetails.itemCount > 99 ? `${playlist.contentDetails.itemCount}+` : playlist.contentDetails.itemCount
               }}
             />
           )}
           keyExtractor={item => item.id}
+          
         />
       </View>
     )

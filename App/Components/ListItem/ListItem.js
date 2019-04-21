@@ -25,6 +25,12 @@ export default class MyListItem extends React.Component {
     badge: {}
   }
 
+  getAvatarInitials = () => {
+    const wordArray = this.props.title.split(' ')
+    const firstLetterArray = wordArray.map(word => word.charAt(0))
+    return firstLetterArray.join('').toUpperCase()
+  }
+
   render() {
     return (
       <ListItem
@@ -40,11 +46,14 @@ export default class MyListItem extends React.Component {
         rightContentContainerStyle={[styles.rightContentContainerStyle, this.props.rightContentContainerStyle]}
         leftAvatar={{
           rounded: true,
-          badStyles: styles.leftAvatar,
+          size: 'medium',
+          avatarStyles: styles.leftAvatar,
+          title: this.getAvatarInitials(),
           ...this.props.leftAvatar
         }}
         badge={{
-          badStyle: styles.badge,
+          badgeStyle: styles.badge,
+          textStyle: styles.badgeText,
           ...this.props.badge
         }}
       />

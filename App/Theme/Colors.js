@@ -13,5 +13,6 @@ export default {
   error: '#dc3545',
   googleRed: '#D54B40',
   mutedGoogleRed: '#d3847e',
-  black: '#333333'
+  black: '#333333',
+  darkGrey: '#555555'
 }

@@ -7,13 +7,14 @@ export default StyleSheet.create({
     color: Colors.black
   },
   rightTitleStyle: {
-    fontSize: 13
+    fontSize: 12
   },
   rightSubtitleStyle: {
-    fontSize: 13
+    fontSize: 12
   },
   containerStyle: {
-    paddingHorizontal: 5,
+    paddingLeft: 5,
+    paddingRight: 10,
     paddingVertical: 10
   },
   contentContainerStyle: {
@@ -23,12 +24,15 @@ export default StyleSheet.create({
     flex: 1
   },
   leftAvatar: {
-    maxWidth: '100%',
-    height: 'auto'
+    maxWidth: '100%'
   },
   badge: {
     borderRadius: 50,
     padding: 5,
-    height: 'auto' // fix padding issue
+    backgroundColor: Colors.darkGrey,
+    height: 'auto' // fix ios padding issue
+  },
+  badgeText: {
+    
   }
 })
