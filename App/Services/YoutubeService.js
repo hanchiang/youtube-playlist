@@ -42,11 +42,12 @@ const getPlaylists = (data = {}) => {
     part = 'snippet,status,contentDetails',
     fields = 'kind,etag,nextPageToken,prevPageToken,pageInfo,items(id,etag,status,contentDetails),items/snippet(publishedAt,channelId,title,description,channelTitle,tags,localized,thumbnails(high,standard,maxres))',
     mine = true,
-    maxResults = 10
+    maxResults = 30,
+    pageToken = null
   } = data
 
   return api.get('/playlists', {
-    part, fields, mine, maxResults
+    part, fields, mine, maxResults, pageToken
   })
 }
 
