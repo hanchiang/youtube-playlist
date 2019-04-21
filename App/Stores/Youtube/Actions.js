@@ -1,9 +1,10 @@
 import { createActions } from 'reduxsauce'
 
 const { Types, Creators } = createActions({
-  fetchPlaylists: ['fetchPageNumber'],
+  fetchPlaylists: ['fetchPageNumber', 'pageToken'],
   fetchPlaylistsSuccess: ['result', 'currentPage'],
-  fetchPlaylistsFailure: ['errorMessage']
+  fetchPlaylistsFailure: ['errorMessage'],
+  getPlaylistsPage: ['pageNumber']
 })
 
 export const YoutubeTypes = Types
