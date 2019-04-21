@@ -53,6 +53,7 @@ export default class MyListItem extends React.Component {
         }}
         badge={{
           badgeStyle: styles.badge,
+          containerStyle: styles.badgeContainer,
           textStyle: styles.badgeText,
           ...this.props.badge
         }}

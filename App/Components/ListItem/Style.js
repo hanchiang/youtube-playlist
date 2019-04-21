@@ -18,10 +18,10 @@ export default StyleSheet.create({
     paddingVertical: 10
   },
   contentContainerStyle: {
-    flex: 1
+    flex: 3
   },
   rightContentContainerStyle: {
-    flex: 1
+    flex: 3
   },
   leftAvatar: {
     maxWidth: '100%'
@@ -31,6 +31,9 @@ export default StyleSheet.create({
     padding: 5,
     backgroundColor: Colors.darkGrey,
     height: 'auto' // fix ios padding issue
+  },
+  badgeContainer: {
+    flex: 1.5
   },
   badgeText: {
     
