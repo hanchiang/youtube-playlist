@@ -7,7 +7,8 @@ import dateFns from 'date-fns'
 import { getVisiblePlaylists } from 'App/Stores/Playlist/Selectors'
 import ListItem from 'App/Components/ListItem/ListItem'
 import PlaylistActions from 'App/Stores/Playlist/Actions'
-import { INITIAL_STATE } from 'App/Stores/Playlist/Reducers'
+import PlaylistItemsAction from 'App/Stores/PlaylistItems/Actions'
+import { Config } from 'App/Config'
 import styles from './PlaylistScreenStyle'
 
 import { connect } from 'react-redux'
@@ -26,7 +27,8 @@ class PlaylistScreen extends React.Component {
     prevPageToken: PropTypes.string,
     nextPageToken: PropTypes.string,
     name: PropTypes.string.isRequired,
-    numFetchedPlaylists: PropTypes.number.isRequired
+    numFetchedPlaylists: PropTypes.number.isRequired,
+    fetchPlaylistItems: PropTypes.func.isRequired
   }
 
   static defaultProps = {
@@ -43,7 +45,7 @@ class PlaylistScreen extends React.Component {
   }
 
   shouldFetchPlaylists = (fetchPageNumber) => {
-    const playlistStartPos = (fetchPageNumber - 1) * INITIAL_STATE.DISPLAY_PER_PAGE
+    const playlistStartPos = (fetchPageNumber - 1) * Config.DISPLAY_PER_PAGE
     return playlistStartPos >= this.props.numFetchedPlaylists
   }
 
@@ -61,6 +63,10 @@ class PlaylistScreen extends React.Component {
     } else {
       this.props.getPlaylistsPage(this.props.currentPage + 1)
     }
+  }
+
+  goToPlaylist = (playlistId) => {
+    this.props.fetchPlaylistItems(playlistId)
   }
 
   render() {
@@ -86,6 +92,7 @@ class PlaylistScreen extends React.Component {
               badge={{
                 value: playlist.contentDetails.itemCount > 99 ? `${playlist.contentDetails.itemCount}+` : playlist.contentDetails.itemCount
               }}
+              onPress={() => this.goToPlaylist(playlist.id)}
             />
           )}
           keyExtractor={item => item.id}
@@ -128,8 +135,11 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchPlaylists: (fetchPageNumber = 1, pageToken = null) => dispatch(PlaylistActions.fetchPlaylists(fetchPageNumber, pageToken)),
-  getPlaylistsPage: pageNumber => dispatch(PlaylistActions.getPlaylistsPage(pageNumber))
+  fetchPlaylists: (fetchPageNumber = 1, pageToken = null) =>
+    dispatch(PlaylistActions.fetchPlaylists(fetchPageNumber, pageToken)),
+  getPlaylistsPage: pageNumber => dispatch(PlaylistActions.getPlaylistsPage(pageNumber)),
+  fetchPlaylistItems: (playlistId, fetchPageNumber = 1, pageToken = null) =>
+    dispatch(PlaylistItemsAction.fetchPlaylistItems(playlistId, fetchPageNumber, pageToken))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlaylistScreen)

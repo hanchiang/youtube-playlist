@@ -4,6 +4,7 @@ import Reactotron from 'reactotron-react-native'
 import createStore from 'App/Stores'
 import AuthActions from 'App/Stores/Auth/Actions'
 import { authService } from './AuthService'
+import { Config } from 'App/Config'
 
 /**
  * Google oauth endpoints
@@ -42,7 +43,7 @@ const getPlaylists = (data = {}) => {
     part = 'snippet,status,contentDetails',
     fields = 'kind,etag,nextPageToken,prevPageToken,pageInfo,items(id,etag,status,contentDetails),items/snippet(publishedAt,channelId,title,description,channelTitle,tags,localized,thumbnails(high,standard,maxres))',
     mine = true,
-    maxResults = 30,
+    maxResults = Config.MAX_RESULTS_TO_FETCH,
     pageToken = null
   } = data
 
@@ -51,6 +52,20 @@ const getPlaylists = (data = {}) => {
   })
 }
 
+const getPlaylistItems = (data = {}) => {
+  const {
+    part = 'snippet,status,contentDetails',
+    fields = 'kind,etag,nextPageToken,prevPageToken,pageInfo,items(kind,etag,id,contentDetails,status),items/snippet(publishedAt,title,description,thumbnails(standard,high,maxres),channelTitle)',
+    maxResults = Config.MAX_RESULTS_TO_FETCH,
+    pageToken = null,
+    playlistId
+  } = data
+
+  return api.get('/playlistItems', {
+    part, fields, maxResults, pageToken, playlistId
+  })
+}
+
 export default {
-  getPlaylists
+  getPlaylists, getPlaylistItems
 }
