@@ -1,5 +1,5 @@
 import { createReducer } from 'reduxsauce'
-import { YoutubeTypes } from './Actions'
+import { PlaylistTypes } from './Actions'
 import { AuthTypes } from 'App/Stores/Auth/Actions'
 
 // If `DISPLAY_PER_PAGE` is greater than the number of playlists after the first fetch, then
@@ -51,9 +51,9 @@ export const getPlaylistsPage = (state, { pageNumber }) => ({
 const logout = () => INITIAL_STATE
 
 export default createReducer(INITIAL_STATE, {
-  [YoutubeTypes.FETCH_PLAYLISTS]: fetchPlaylists,
-  [YoutubeTypes.FETCH_PLAYLISTS_SUCCESS]: fetchPlaylistsSuccess,
-  [YoutubeTypes.FETCH_PLAYLISTS_FAILURE]: fetchPlaylistsFailure,
-  [YoutubeTypes.GET_PLAYLISTS_PAGE]: getPlaylistsPage,
+  [PlaylistTypes.FETCH_PLAYLISTS]: fetchPlaylists,
+  [PlaylistTypes.FETCH_PLAYLISTS_SUCCESS]: fetchPlaylistsSuccess,
+  [PlaylistTypes.FETCH_PLAYLISTS_FAILURE]: fetchPlaylistsFailure,
+  [PlaylistTypes.GET_PLAYLISTS_PAGE]: getPlaylistsPage,
   [AuthTypes.LOGOUT]: logout
 })

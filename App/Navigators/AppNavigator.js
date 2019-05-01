@@ -4,7 +4,7 @@ import { Icon, Text } from 'react-native-elements'
 
 import SplashScreen from 'App/Containers/SplashScreen/SplashScreen'
 import LoginScreen from 'App/Containers/LoginScreen/LoginScreen'
-import ListScreen from 'App/Containers/ListScreen/ListScreen'
+import PlaylistScreen from 'App/Containers/PlaylistScreen/PlaylistScreen'
 
 import Drawer from 'App/Components/Drawer/Drawer'
 
@@ -16,12 +16,12 @@ import Drawer from 'App/Components/Drawer/Drawer'
 
 const MainStack = createStackNavigator(
   {
-    ListScreen: {
-      screen: ListScreen
+    PlaylistScreen: {
+      screen: PlaylistScreen
     }
   },
   {
-    initialRouteName: 'ListScreen',
+    initialRouteName: 'PlaylistScreen',
     headerMode: 'screen',
     defaultNavigationOptions: ({ navigation }) => ({
       headerLeft: <Icon

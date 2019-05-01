@@ -2,7 +2,7 @@ import { takeLatest, all } from 'redux-saga/effects'
 
 import { AuthTypes } from '../Stores/Auth/Actions'
 import { StartupTypes } from 'App/Stores/Startup/Actions'
-import { YoutubeTypes } from 'App/Stores/Youtube/Actions'
+import { PlaylistTypes } from 'App/Stores/Playlist/Actions'
 
 import { authorize, refreshAccessToken, logout } from './AuthSaga'
 import { startup } from './StartupSaga'
@@ -16,7 +16,7 @@ export default function* root() {
     takeLatest(StartupTypes.STARTUP, startup),
     takeLatest(AuthTypes.AUTHORIZE, authorize),
     takeLatest(AuthTypes.REFRESH_ACCESS_TOKEN, refreshAccessToken),
-    takeLatest(YoutubeTypes.FETCH_PLAYLISTS, fetchPlaylistsSaga),
+    takeLatest(PlaylistTypes.FETCH_PLAYLISTS, fetchPlaylistsSaga),
     takeLatest(AuthTypes.LOGOUT, logout)
   ])
 }

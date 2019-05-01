@@ -7,5 +7,5 @@ const { Types, Creators } = createActions({
   getPlaylistsPage: ['pageNumber']
 })
 
-export const YoutubeTypes = Types
+export const PlaylistTypes = Types
 export default Creators
