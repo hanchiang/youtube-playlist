@@ -8,11 +8,13 @@ import { getVisiblePlaylists } from 'App/Stores/Youtube/Selectors'
 import ListItem from 'App/Components/ListItem/ListItem'
 import YoutubeActions from 'App/Stores/Youtube/Actions'
 import { INITIAL_STATE } from 'App/Stores/Youtube/Reducers'
-import styles from './ListScreenStyle'
+import styles from './PlaylistScreenStyle'
 
 import { connect } from 'react-redux'
 
-class ListScreen extends React.Component {
+// TODO: Use reselect
+// TODO: loaing overlay https://github.com/joinspontaneous/react-native-loading-spinner-overlay
+class PlaylistScreen extends React.Component {
   static propTypes = {
     fetchPlaylists: PropTypes.func.isRequired,
     getPlaylistsPage: PropTypes.func.isRequired,
@@ -30,6 +32,10 @@ class ListScreen extends React.Component {
   static defaultProps = {
     prevPageToken: null,
     nextPageToken: null
+  }
+
+  static navigationOptions = {
+    title: 'Playlists'
   }
 
   componentDidMount() {
@@ -72,7 +78,7 @@ class ListScreen extends React.Component {
             <ListItem
               title={playlist.snippet.localized.title}
               subtitle={playlist.snippet.localized.description}
-              rightTitle={dateFns.format(playlist.snippet.publishedAt, 'ddd DD MMM YYYY')}
+              rightTitle={dateFns.format(playlist.snippet.publishedAt, 'DD MMM YYYY')}
               rightSubtitle={playlist.status.privacyStatus}
               leftAvatar={{
                 source: { uri: playlist.snippet.thumbnails.high.url }
@@ -126,4 +132,4 @@ const mapDispatchToProps = (dispatch) => ({
   getPlaylistsPage: pageNumber => dispatch(YoutubeActions.getPlaylistsPage(pageNumber))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(ListScreen)
+export default connect(mapStateToProps, mapDispatchToProps)(PlaylistScreen)
