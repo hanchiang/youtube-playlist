@@ -14,7 +14,8 @@ export default class MyListItem extends React.Component {
     contentContainerStyle: PropTypes.object,
     rightContentContainerStyle: PropTypes.object,
     leftAvatar: PropTypes.object,
-    badge: PropTypes.object
+    badge: PropTypes.object,
+    onPress: PropTypes.func
   }
 
   static defaultProps = {
@@ -22,7 +23,8 @@ export default class MyListItem extends React.Component {
     contentContainerStyle: {},
     rightContentContainerStyle: {},
     leftAvatar: {},
-    badge: {}
+    badge: {},
+    onPress: () => {}
   }
 
   getAvatarInitials = () => {
@@ -34,6 +36,7 @@ export default class MyListItem extends React.Component {
   render() {
     return (
       <ListItem
+        onPress={this.props.onPress}
         title={this.props.title}
         titleStyle={[styles.titleStyle]}
         subtitle={this.props.subtitle}
