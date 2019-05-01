@@ -2,6 +2,8 @@ import { createReducer } from 'reduxsauce'
 import { PlaylistTypes } from './Actions'
 import { AuthTypes } from 'App/Stores/Auth/Actions'
 
+import { Config } from 'App/Config'
+
 // If `DISPLAY_PER_PAGE` is greater than the number of playlists after the first fetch, then
 // the pagination logic will need some tweaking in order display the correct playlists
 
@@ -14,8 +16,7 @@ export const INITIAL_STATE = {
   prevPageToken: null,
   nextPageToken: null,
   isFetching: false,
-  errorMessage: null,
-  DISPLAY_PER_PAGE: 30
+  errorMessage: null
 }
 
 export const fetchPlaylists = (state) => ({
@@ -29,7 +30,7 @@ export const fetchPlaylistsSuccess = (state, { result, currentPage }) => ({
   totalResults: result.pageInfo.totalResults,
   resultsPerPage: result.pageInfo.resultsPerPage,
   currentPage: currentPage || 1,
-  totalPages: Math.ceil(result.pageInfo.totalResults / state.DISPLAY_PER_PAGE),
+  totalPages: Math.ceil(result.pageInfo.totalResults / Config.DISPLAY_PER_PAGE),
   prevPageToken: result.prevPageToken,
   nextPageToken: result.nextPageToken,
   isFetching: false,

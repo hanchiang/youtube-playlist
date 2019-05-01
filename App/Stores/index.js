@@ -8,6 +8,7 @@ import rootSaga from 'App/Sagas'
 import authReducer from './Auth/Reducers'
 import userReducer from './User/Reducers'
 import playlistReducer from './Playlist/Reducers'
+import playlistItemsReducer from './PlaylistItems/Reducers'
 
 const persistConfig = {
   key: 'root',
@@ -40,7 +41,8 @@ const userPersistConfig = {
 const rootReducer = combineReducers({
   authState: persistReducer(authPersistConfig, authReducer),
   userState: persistReducer(userPersistConfig, userReducer),
-  playlistState: playlistReducer
+  playlistState: playlistReducer,
+  playlistItemsState: playlistItemsReducer
 })
 
 const middleware = []
