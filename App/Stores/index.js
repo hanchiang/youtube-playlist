@@ -7,7 +7,7 @@ import Reactotron from '../Config/Reactotron'
 import rootSaga from 'App/Sagas'
 import authReducer from './Auth/Reducers'
 import userReducer from './User/Reducers'
-import youtubeReducer from './Youtube/Reducers'
+import playlistReducer from './Playlist/Reducers'
 
 const persistConfig = {
   key: 'root',
@@ -40,7 +40,7 @@ const userPersistConfig = {
 const rootReducer = combineReducers({
   authState: persistReducer(authPersistConfig, authReducer),
   userState: persistReducer(userPersistConfig, userReducer),
-  youtubeState: youtubeReducer
+  playlistState: playlistReducer
 })
 
 const middleware = []

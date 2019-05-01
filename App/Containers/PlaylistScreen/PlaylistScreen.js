@@ -4,10 +4,10 @@ import { View, FlatList } from 'react-native'
 import { Text, Button } from 'react-native-elements'
 import dateFns from 'date-fns'
 
-import { getVisiblePlaylists } from 'App/Stores/Youtube/Selectors'
+import { getVisiblePlaylists } from 'App/Stores/Playlist/Selectors'
 import ListItem from 'App/Components/ListItem/ListItem'
-import YoutubeActions from 'App/Stores/Youtube/Actions'
-import { INITIAL_STATE } from 'App/Stores/Youtube/Reducers'
+import PlaylistActions from 'App/Stores/Playlist/Actions'
+import { INITIAL_STATE } from 'App/Stores/Playlist/Reducers'
 import styles from './PlaylistScreenStyle'
 
 import { connect } from 'react-redux'
@@ -117,19 +117,19 @@ class PlaylistScreen extends React.Component {
 
 const mapStateToProps = (state) => ({
   name: state.userState.user.name,
-  numFetchedPlaylists: state.youtubeState.playlists.length,
+  numFetchedPlaylists: state.playlistState.playlists.length,
   playlists: getVisiblePlaylists(state),
-  totalResults: state.youtubeState.totalResults,
-  currentPage: state.youtubeState.currentPage,
-  totalPages: state.youtubeState.totalPages,
-  isFetching: state.youtubeState.isFetching,
-  prevPageToken: state.youtubeState.prevPageToken,
-  nextPageToken: state.youtubeState.nextPageToken
+  totalResults: state.playlistState.totalResults,
+  currentPage: state.playlistState.currentPage,
+  totalPages: state.playlistState.totalPages,
+  isFetching: state.playlistState.isFetching,
+  prevPageToken: state.playlistState.prevPageToken,
+  nextPageToken: state.playlistState.nextPageToken
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchPlaylists: (fetchPageNumber = 1, pageToken = null) => dispatch(YoutubeActions.fetchPlaylists(fetchPageNumber, pageToken)),
-  getPlaylistsPage: pageNumber => dispatch(YoutubeActions.getPlaylistsPage(pageNumber))
+  fetchPlaylists: (fetchPageNumber = 1, pageToken = null) => dispatch(PlaylistActions.fetchPlaylists(fetchPageNumber, pageToken)),
+  getPlaylistsPage: pageNumber => dispatch(PlaylistActions.getPlaylistsPage(pageNumber))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlaylistScreen)
