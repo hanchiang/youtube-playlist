@@ -1,4 +1,4 @@
-package com.youtubeapi;
+package com.youtubeplaylist;
 
 import com.rnappauth.RNAppAuthPackage;
 

@@ -103,7 +103,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.youtubeapi"
+        applicationId "com.youtubeplaylist"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "Youtubeapi-tvOS.app"
-               BlueprintName = "Youtubeapi-tvOS"
-               ReferencedContainer = "container:Youtubeapi.xcodeproj">
+               BuildableName = "youtubeplaylist-tvOS.app"
+               BlueprintName = "youtubeplaylist-tvOS"
+               ReferencedContainer = "container:youtubeplaylist.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "Youtubeapi-tvOSTests.xctest"
-               BlueprintName = "Youtubeapi-tvOSTests"
-               ReferencedContainer = "container:Youtubeapi.xcodeproj">
+               BuildableName = "youtubeplaylist-tvOSTests.xctest"
+               BlueprintName = "youtubeplaylist-tvOSTests"
+               ReferencedContainer = "container:youtubeplaylist.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -61,9 +61,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "Youtubeapi-tvOSTests.xctest"
-               BlueprintName = "Youtubeapi-tvOSTests"
-               ReferencedContainer = "container:Youtubeapi.xcodeproj">
+               BuildableName = "youtubeplaylist-tvOSTests.xctest"
+               BlueprintName = "youtubeplaylist-tvOSTests"
+               ReferencedContainer = "container:youtubeplaylist.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -71,9 +71,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "Youtubeapi-tvOS.app"
-            BlueprintName = "Youtubeapi-tvOS"
-            ReferencedContainer = "container:Youtubeapi.xcodeproj">
+            BuildableName = "youtubeplaylist-tvOS.app"
+            BlueprintName = "youtubeplaylist-tvOS"
+            ReferencedContainer = "container:youtubeplaylist.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "Youtubeapi-tvOS.app"
-            BlueprintName = "Youtubeapi-tvOS"
-            ReferencedContainer = "container:Youtubeapi.xcodeproj">
+            BuildableName = "youtubeplaylist-tvOS.app"
+            BlueprintName = "youtubeplaylist-tvOS"
+            ReferencedContainer = "container:youtubeplaylist.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -113,9 +113,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "Youtubeapi-tvOS.app"
-            BlueprintName = "Youtubeapi-tvOS"
-            ReferencedContainer = "container:Youtubeapi.xcodeproj">
+            BuildableName = "youtubeplaylist-tvOS.app"
+            BlueprintName = "youtubeplaylist-tvOS"
+            ReferencedContainer = "container:youtubeplaylist.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
