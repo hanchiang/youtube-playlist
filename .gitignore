@@ -57,3 +57,6 @@ buck-out/
 
 # Podfile
 Pods/
+
+# tests
+App/__tests__/coverage
