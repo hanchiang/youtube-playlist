@@ -1,5 +1,5 @@
 jest.mock('react-native-gesture-handler', () => {
-  const View = require('react-native/Libraries/Components/View/View');
+  const View = require('react-native/Libraries/Components/View/View')
   return {
     Swipeable: View,
     DrawerLayout: View,
@@ -28,6 +28,6 @@ jest.mock('react-native-gesture-handler', () => {
     /* Other */
     FlatList: View,
     gestureHandlerRootHOC: jest.fn(),
-    Directions: {},
-  };
-});
+    Directions: {}
+  }
+})
