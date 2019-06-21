@@ -37,7 +37,7 @@ The driving goal of the architecture of the boilerplate is separation of concern
 
 The boilerplate contains:
 
-- a [React Native](https://facebook.github.io/react-native/) (v0.59.2) application (in "[ejected](https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md)" mode to allow using dependencies that rely on native code)
+- a [React Native](https://facebook.github.io/react-native/) (v**0.59.9**) application (in "[ejected](https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md)" mode to allow using dependencies that rely on native code)
 - a [clear directory layout](#directory-layout) to provide a base architecture for your application
 - [Redux](https://redux.js.org/) (v4.0.1) to help manage state
 - [Redux Persist](https://github.com/rt2zz/redux-persist) (v5.10.0) to persist the Redux state
@@ -93,11 +93,17 @@ Assuming you have all the requirements installed, you can setup and run the proj
 - Using [Fastlane](https://fastlane.tools/) to automate builds and store deployments (iOS and Android)
   - [Distributing beta builds](docs/beta%20builds.md)
 
-
 ### Package dependencies
 
 - You may want to use [CocoaPods](https://cocoapods.org/) to manage your dependencies (iOS only) 
   - [Using CocoaPods to manage your package dependencies](docs/setup%20cocoapods.md)
+  
+  
+## Troubleshooting
+
+### App fails to start after renaming
+
+If your applicaiton fails to start after using the `yarn run rename` command, please take a look at [this issue](https://github.com/thecodingmachine/react-native-boilerplate/issues/34)
 
 ## License
 
